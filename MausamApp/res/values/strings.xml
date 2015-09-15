@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mausam App</string>
+    
+    <string name="title_activity_detail">Current Weather</string>
+    <string name="action_settings">Settings</string>
+     <string name="action_about">About</string>
+      <string name="action_refresh">Refresh</string>
+      
+    <string name="ni_clear_sky">&#xf02e;</string>
+    <string name="ni_few_clouds">&#xf086;</string>
+    <string name="ni_scattered_clouds">&#xf081;</string>
+    <string name="ni_broken_clouds">&#xf013;</string>
+    <string name="ni_shower_rain">&#xf037;</string>
+    <string name="ni_rain">&#xf028;</string>
+    <string name="ni_thunderstrom">&#xf025;</string>
+    <string name="ni_snow">&#xf067;</string>
+    <string name="ni_mist">&#xf04a;</string>
+    <string name="day_clear_sky">&#xf00d;</string>
+    <string name="day_few_clouds">&#xf002;</string>
+    <string name="day_scattered_clouds">&#xf00c;</string>
+    <string name="day_broken_clouds">&#xf013;</string>
+    <string name="day_shower_rain">&#xf009;</string>
+    <string name="day_rain">&#xf008;</string>
+    <string name="day_thunderstrom">&#xf010;</string>
+    <string name="day_snow">&#xf00a;</string>
+    <string name="day_mist">&#xf0b6;</string>
+    <string name="na">&#xf07b;</string>
+     <string name="celsius">&#xf03c;</string>
+     <string name="fahrenheit">&#xf045;</string>
+      <string name="humidity">&#xf07a;</string>
+    <string name="title_pref">City Name</string>
+    <string name="summary_pref">Enter city name</string>
+     <string name="pref_title">Unit</string>
+    <string name="pref_summary">Celsius and Fahrenheit</string>
+</resources>
