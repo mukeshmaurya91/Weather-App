@@ -73,11 +73,6 @@ public class DetailActivity extends Activity {
    
 	@Override
     protected void onStart() {
-		/*SharedPreferences msharePref = getSharedPreferences("mPref", Activity.MODE_PRIVATE);
-		if(msharePref.getBoolean("isFirst", true))
-		{
-			startActivity(new Intent(this, SettingsActivity.class));
-		}*/
     	updateWeatherFromPref();
     	super.onStart();
     }
@@ -137,7 +132,7 @@ public class DetailActivity extends Activity {
 		if(id==R.id.action_share){
 			setShareText();
             if(shareText!=null)
-            startActivity(Intent.createChooser(getDefaultShareIntent(),"Share with"));
+            startActivity(Intent.createChooser(getDefaultShareIntent(),"Share with"));   //Share Activity
             else
                 Toast.makeText(this,"Current weather is unavailable.",Toast.LENGTH_LONG).show();
         }
@@ -182,9 +177,9 @@ public class DetailActivity extends Activity {
 		try {
 			if (isConnected()) {
 				new AccessData()
-						.execute("http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric");
+						.execute("http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric");  //Openweather Api
 			} else {
-				//lon.setText("Please connect to Wi-Fi or Mobile Internet.");	
+
 			   Toast.makeText(this, "No Internet connection!", Toast.LENGTH_LONG).show();
 			}
 
