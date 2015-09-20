@@ -40,6 +40,7 @@ public class DetailActivity extends Activity {
 	private TextView icon;
 	private Info info= new Info();
 	private ProgressDialog pd;
+	private String shareText=null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +134,13 @@ public class DetailActivity extends Activity {
 			updateWeather();
 			return true;
 		}
+		if(id==R.id.action_share){
+			setShareText();
+            if(shareText!=null)
+            startActivity(Intent.createChooser(getDefaultShareIntent(),"Share with"));
+            else
+                Toast.makeText(this,"Current weather is unavailable.",Toast.LENGTH_LONG).show();
+        }
 		if (id == R.id.action_about) {
 			AlertDialog.Builder ad = new AlertDialog.Builder(this);
 			ad.setIcon(getResources().getDrawable(R.drawable.ic_launcher));
@@ -150,6 +158,22 @@ public class DetailActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	private void setShareText(){
+		shareText=info.getCityName()+", "+info.getCountry()+"\n Temperature: "+
+    	                   info.getTemp()+"*c\n"+
+    	                   info.getType()+"\nHumidity: "+
+    	                  info.getHumidity()+"%\nPressure: "+
+    	                  info.getPressure()+"hpa\nWind Speed : "+
+    	                  info.getWindSpeed()+"m/s\nUpdated On: "+
+    	                  info.getUpdateTime();
+	}
+	private Intent getDefaultShareIntent() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Current Weather Report");
+        intent.putExtra(Intent.EXTRA_TEXT,"\n"+shareText);
+        return intent;
+    }
 
 	private void updateWeather() {
 		SharedPreferences settingPref = PreferenceManager.getDefaultSharedPreferences(this);
